@@ -1,0 +1,24 @@
+{
+  "id": "learn",
+  "tag": "Learn",
+  "title": "Learn the Basics",
+  "blurb": "Free courses and playlists I actually recommend.",
+  "items": [
+    {
+      "title": "Math & ML on YouTube",
+      "desc": "Linear algebra → calculus → probability → stats → ML. Tick them off.",
+      "url": "https://github.com/pavankumarbalijepalli/bunnybethinking-resources/blob/main/assets/Youtube-Resources.md",
+      "type": "Checklist",
+      "accent": "core",
+      "keywords": ["3blue1brown", "statquest", "maths", "youtube"]
+    },
+    {
+      "title": "Linear Algebra",
+      "desc": "3Blue1Brown — the visual way to learn the maths behind ML.",
+      "url": "https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab",
+      "type": "Playlist",
+      "accent": "core",
+      "keywords": ["3blue1brown", "math", "vectors", "matrices"]
+    }
+  ]
+}

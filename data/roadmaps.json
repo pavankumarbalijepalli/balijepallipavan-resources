@@ -1,0 +1,17 @@
+{
+  "id": "roadmaps",
+  "tag": "Roadmaps",
+  "title": "Roadmaps & Guides",
+  "blurb": "The order it actually makes sense to learn things.",
+  "items": [
+    {
+      "title": "AI Engineer Roadmap",
+      "desc": "Zero to shipping real AI products. No PhD, no skipped steps.",
+      "url": "assets/roadmap_ai_engineer.pdf",
+      "type": "PDF",
+      "badge": "new",
+      "accent": "first",
+      "keywords": ["ai engineer", "llm", "rag", "career", "beginner"]
+    }
+  ]
+}

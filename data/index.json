@@ -1,0 +1,4 @@
+{
+  "_help": "Sections appear on the page in this order. To add a section, create data/<name>.json and list it here.",
+  "sections": ["roadmaps.json", "skills.json", "learn.json"]
+}
