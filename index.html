@@ -100,12 +100,13 @@
     <div class="finder" id="finder" hidden>
       <label class="search" for="search">
         <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
-        <input id="search" type="search" placeholder="Search resources" autocomplete="off" spellcheck="false" />
+        <input id="search" type="search" placeholder="Search roadmaps, skills, playlists…" autocomplete="off" spellcheck="false" />
       </label>
       <div class="chips" id="chips" role="group" aria-label="Filter by section"></div>
+      <p class="status caption" id="status" role="status" aria-live="polite"></p>
     </div>
 
-    <!-- ══ SECTIONS (rendered by script.js from resources.js) ═══ -->
+    <!-- ══ SECTIONS (rendered by script.js from data/*.json) ═══ -->
     <main id="sections" aria-live="polite"></main>
 
     <p class="empty" id="empty" hidden>Nothing matches that. Try another word.</p>
@@ -124,7 +125,6 @@
 
   </div>
 
-  <script src="resources.js"></script>
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
