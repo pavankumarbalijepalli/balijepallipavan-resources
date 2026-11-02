@@ -1,0 +1,20 @@
+name: Validate data
+
+on:
+  push:
+    paths: ['data/**', 'assets/**', 'scripts/**', '.github/workflows/validate-data.yml']
+  pull_request:
+    paths: ['data/**', 'assets/**', 'scripts/**', '.github/workflows/validate-data.yml']
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/validate-data.mjs

@@ -6,40 +6,54 @@ Styled from the **Sage and Stone** design system: cool blueprint paper, deep nav
 
 ## ➕ Adding a resource
 
-Everything is driven by **`resources.js`** — you never touch the HTML.
+Content lives in **`data/*.json`**, one file per section. Edit a file, push, and the page updates. You never touch the HTML.
+
+| File | Section |
+|------|---------|
+| `data/roadmaps.json` | Roadmaps & Guides |
+| `data/skills.json` | Skills & Prompts |
+| `data/learn.json` | Learn the Basics |
+| `data/index.json` | Which sections show, and in what order |
 
 1. Drop the file into `assets/` (or use an external URL).
-2. Add an object to `RESOURCES` in `resources.js`:
+2. Add an object to the `items` list of the right JSON file:
 
-```js
+```json
 {
-  section: 'roadmaps',            // id from SECTIONS
-  title: 'AI Engineer Roadmap',
-  desc: 'Zero to shipping real AI products.',
-  url: 'assets/roadmap_ai_engineer.pdf',
-  type: 'PDF',                    // optional label
-  badge: 'new',                   // optional — remove when it's no longer new
-  accent: 'first',                // optional: first | core | optional
+  "title": "AI Engineer Roadmap",
+  "desc": "Zero to shipping real AI products.",
+  "url": "assets/roadmap_ai_engineer.pdf",
+  "type": "PDF",
+  "badge": "new",
+  "accent": "first",
+  "keywords": ["llm", "career", "beginner"]
 }
 ```
 
+Only `title` and `url` are required.
+
+| Field | What it does |
+|-------|--------------|
+| `type` | Small label on the right (PDF, Playlist, Skill…) |
+| `badge` | `"new"` tag. Remove it when it's no longer new |
+| `accent` | Number box colour: `first` (cobalt, do this first) · `core` (mist, core skill) · `optional` (outlined) |
+| `keywords` | Extra words that only search sees, e.g. synonyms and tool names |
+
 3. Commit and push. Cards are numbered automatically.
 
-Need a new category? Add an entry to `SECTIONS` at the top of `resources.js`.
-Search + filter chips appear automatically once there are 6+ resources.
+**New section?** Create `data/<name>.json` (copy an existing one, set `id`, `tag`, `title`, `blurb`) and add its file name to `data/index.json`.
 
-**Accents** (the card's number box): cobalt = do this first · mist = core skill · outlined = optional / advanced.
+**Search** is always on: type several words and a card must match all of them across its title, description, type, keywords and section name. The chips filter by section.
 
-## 📁 Structure
+If a JSON file has a typo (missing comma or quote), the page shows a notice naming the broken file and every other section still loads.
 
+**Checking your edits.** A GitHub Action (`.github/workflows/validate-data.yml`) runs on every push and PR that touches `data/` or `assets/`. It fails if a JSON file has a syntax error, an item is missing `title` or `url`, `accent` isn't `first`/`core`/`optional`, or a local link like `assets/foo.pdf` points at a file that isn't in the repo. To check before pushing:
+
+```bash
+node scripts/validate-data.mjs
 ```
-├── index.html      # Page shell (header, callout, footer)
-├── resources.js    # ← the only file you edit to add content
-├── script.js       # Renders sections/cards, search + filters
-├── styles.css      # Design tokens + components
-├── avatar.jpg
-└── assets/         # PDFs, skills, checklists
-```
+
+> The page loads JSON with `fetch`, so open it through a server (`python3 -m http.server`), not by double-clicking `index.html`. GitHub Pages is fine.
 
 ## 🚀 Deployment
 

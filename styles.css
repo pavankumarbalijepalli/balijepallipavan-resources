@@ -253,6 +253,17 @@ a { color: inherit; }
   color: var(--bg);
 }
 
+.status { color: var(--ink-muted); margin-top: var(--space-2); }
+
+.notice {
+  margin-bottom: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  background: var(--surface-alt);
+  border: 1px solid var(--ink-muted);
+  border-radius: var(--radius-md);
+  color: var(--ink);
+}
+
 /* ── Sections ─────────────────────────────────────────────── */
 .section { margin-bottom: var(--space-4); }
 
