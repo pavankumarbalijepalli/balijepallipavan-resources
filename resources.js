@@ -12,9 +12,9 @@
      desc    required   One line, keep it short
      url     required   https://… link, or a path like assets/file.pdf
      type    optional   Small label on the right (PDF, Playlist, Skill…)
-     badge   optional   "new" (mint) — drop it once it's not new anymore
-     accent  optional   "mint" (default) | "violet" | "grey"
-                        mint = do this first · violet = core · grey = optional
+     badge   optional   "new" — drop it once it's not new anymore
+     accent  optional   "first" (default) | "core" | "optional"
+                        first = do this first · core = core skill · optional = optional / advanced
    ============================================================ */
 
 const SECTIONS = [
@@ -41,7 +41,7 @@ const RESOURCES = [
     desc: 'The exact skill I use to design my carousels.',
     url: 'https://github.com/pavankumarbalijepalli/bunnybethinking-resources/blob/main/assets/instagram-carousel-skill.md',
     type: 'Skill',
-    accent: 'violet',
+    accent: 'core',
   },
 
   /* ── Learn the Basics ──────────────────────────────────── */
@@ -51,7 +51,7 @@ const RESOURCES = [
     desc: 'Linear algebra → calculus → probability → stats → ML. Tick them off.',
     url: 'https://github.com/pavankumarbalijepalli/bunnybethinking-resources/blob/main/assets/Youtube-Resources.md',
     type: 'Checklist',
-    accent: 'violet',
+    accent: 'core',
   },
   {
     section: 'learn',
@@ -59,7 +59,7 @@ const RESOURCES = [
     desc: '3Blue1Brown — the visual way to learn the maths behind ML.',
     url: 'https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab',
     type: 'Playlist',
-    accent: 'violet',
+    accent: 'core',
   },
 
   /* ── ADD NEW RESOURCES ABOVE THIS LINE ─────────────────── */
