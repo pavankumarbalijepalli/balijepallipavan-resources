@@ -1,5 +1,5 @@
 /* ============================================================
-   bunnybethinking Resource Hub — script.js
+   balijepallipavan Resource Hub — script.js
    Loads every section from data/*.json and renders it.
    Edit a JSON file, push, and the page updates. Nothing else to touch.
    ============================================================ */
