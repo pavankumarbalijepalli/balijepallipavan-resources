@@ -24,7 +24,7 @@ const pad = (n) => String(n).padStart(2, '0');
 
 /* ── Build one resource card ──────────────────────────────── */
 function buildCard(res, index) {
-  const card = el('a', `card accent-${res.accent || 'mint'}`);
+  const card = el('a', `card accent-${res.accent || 'first'}`);
   card.href = res.url;
   card.target = '_blank';
   card.rel = 'noopener noreferrer';
@@ -32,11 +32,11 @@ function buildCard(res, index) {
   const body = el('div', 'card-body');
   const titleRow = el('div', 'card-title-row');
   titleRow.append(el('h3', 'card-title', res.title));
-  if (res.badge) titleRow.append(el('span', `badge badge-${res.badge}`, res.badge));
+  if (res.badge) titleRow.append(el('span', 'badge', res.badge));
   body.append(titleRow, el('p', 'card-desc', res.desc));
 
   const meta = el('div', 'card-meta');
-  if (res.type) meta.append(el('span', 'card-type', res.type));
+  if (res.type) meta.append(el('span', 'card-type caption', res.type));
   meta.append(el('span', 'card-arrow', '↗'));
 
   card.append(el('span', 'card-num', pad(index + 1)), body, meta);
@@ -63,7 +63,7 @@ function render() {
     wrap.id = `section-${section.id}`;
     wrap.setAttribute('aria-labelledby', `${wrap.id}-title`);
 
-    const tag = el('span', 'phase-tag', `Section ${pad(sectionIndex + 1)} — ${section.tag}`);
+    const tag = el('span', 'tag caption', `${pad(sectionIndex + 1)} · ${section.tag}`);
     const title = el('h2', 'section-title', section.title);
     title.id = `${wrap.id}-title`;
     const list = el('div', 'cards');
