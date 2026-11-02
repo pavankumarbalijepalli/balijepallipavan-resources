@@ -47,6 +47,12 @@ Only `title` and `url` are required.
 
 If a JSON file has a typo (missing comma or quote), the page shows a notice naming the broken file and every other section still loads.
 
+**Checking your edits.** A GitHub Action (`.github/workflows/validate-data.yml`) runs on every push and PR that touches `data/` or `assets/`. It fails if a JSON file has a syntax error, an item is missing `title` or `url`, `accent` isn't `first`/`core`/`optional`, or a local link like `assets/foo.pdf` points at a file that isn't in the repo. To check before pushing:
+
+```bash
+node scripts/validate-data.mjs
+```
+
 > The page loads JSON with `fetch`, so open it through a server (`python3 -m http.server`), not by double-clicking `index.html`. GitHub Pages is fine.
 
 ## 🚀 Deployment
