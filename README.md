@@ -1,6 +1,6 @@
-# 🐇 @bunnybethinking — Resource Hub
+# 🐇 @balijepallipavan — Resource Hub
 
-Every roadmap, skill and guide mentioned in [@bunnybethinking](https://www.instagram.com/bunnybethinking/) posts and videos, in one place. Hosted on **GitHub Pages**.
+Every roadmap, skill and guide mentioned in [@balijepallipavan](https://www.instagram.com/balijepallipavan/) posts and videos, in one place. Hosted on **GitHub Pages**.
 
 Styled from the **Sage and Stone** design system: cool blueprint paper, deep navy ink, cobalt + mist; Garamond display lines, Space Grotesk text, one Lora pull-quote; hairline borders, no shadows. Colors, fonts, spacing and radii live as tokens at the top of `styles.css` and mirror the system's `tokens.json`.
 
@@ -58,7 +58,7 @@ node scripts/validate-data.mjs
 ## 🚀 Deployment
 
 Settings → Pages → source `main`, root `/`. Live at  
-`https://pavankumarbalijepalli.github.io/bunnybethinking-resources/`
+`https://pavankumarbalijepalli.github.io/balijepallipavan-resources/`
 
 ## 🛠️ Stack
 
