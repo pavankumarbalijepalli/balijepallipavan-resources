@@ -28,6 +28,19 @@ function el(tag, className, text) {
 
 const pad = (n) => String(n).padStart(2, '0');
 
+/* 2px line icon: arrow out to the top right */
+function arrowIcon() {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.createElementNS(NS, 'svg');
+  svg.setAttribute('class', 'card-arrow');
+  svg.setAttribute('viewBox', '0 0 24 24');
+  svg.setAttribute('aria-hidden', 'true');
+  const path = document.createElementNS(NS, 'path');
+  path.setAttribute('d', 'M7 17L17 7M8 7h9v9');
+  svg.append(path);
+  return svg;
+}
+
 /* ── Load data ────────────────────────────────────────────── */
 async function loadJSON(file) {
   const res = await fetch(DATA_DIR + file, { cache: 'no-cache' });
@@ -73,12 +86,12 @@ function buildCard(res, index) {
   const body = el('div', 'card-body');
   const titleRow = el('div', 'card-title-row');
   titleRow.append(el('h3', 'card-title', res.title));
-  if (res.badge) titleRow.append(el('span', 'badge', res.badge));
+  if (res.badge) titleRow.append(el('span', 'badge label', res.badge));
   body.append(titleRow, el('p', 'card-desc', res.desc || ''));
 
   const meta = el('div', 'card-meta');
-  if (res.type) meta.append(el('span', 'card-type caption', res.type));
-  meta.append(el('span', 'card-arrow', '↗'));
+  if (res.type) meta.append(el('span', 'card-type label', res.type));
+  meta.append(arrowIcon());
 
   card.append(el('span', 'card-num', pad(index + 1)), body, meta);
   return card;
@@ -111,7 +124,7 @@ function render() {
     wrap.id = `section-${section.id}`;
     wrap.setAttribute('aria-labelledby', `${wrap.id}-title`);
 
-    const tag = el('span', 'tag caption', `${pad(sectionIndex + 1)} · ${section.tag}`);
+    const tag = el('span', 'section-label label', `${pad(sectionIndex + 1)} · ${section.tag}`);
     const title = el('h2', 'section-title', section.title);
     title.id = `${wrap.id}-title`;
     const list = el('div', 'cards');
