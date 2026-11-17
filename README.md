@@ -1,10 +1,10 @@
-# 🐇 @balijepallipavan — Resource Hub
+# balijepallipavan — Resource Hub
 
 Every roadmap, skill and guide mentioned in [@balijepallipavan](https://www.instagram.com/balijepallipavan/) posts and videos, in one place. Hosted on **GitHub Pages**.
 
-Styled from the **Sage and Stone** design system: cool blueprint paper, deep navy ink, cobalt + mist; Garamond display lines, Space Grotesk text, one Lora pull-quote; hairline borders, no shadows. Colors, fonts, spacing and radii live as tokens at the top of `styles.css` and mirror the system's `tokens.json`.
+Styled from the **balijepallipavan** design system: one deep blue, a sky blue, two yellows and a single red used once, in Day (light) and Night (dark) themes that follow the visitor's system setting. Space Grotesk for everything, Lora italic for the one quote, 2px ink outlines with a hard offset shadow, a faint grid, and one phrase per page in a `sun` highlight box. Colors, spacing, radii and the shadow live as tokens at the top of `styles.css` and mirror the system's `tokens.json`.
 
-## ➕ Adding a resource
+## Adding a resource
 
 Content lives in **`data/*.json`**, one file per section. Edit a file, push, and the page updates. You never touch the HTML.
 
@@ -36,7 +36,7 @@ Only `title` and `url` are required.
 |-------|--------------|
 | `type` | Small label on the right (PDF, Playlist, Skill…) |
 | `badge` | `"new"` tag. Remove it when it's no longer new |
-| `accent` | Number box colour: `first` (cobalt, do this first) · `core` (mist, core skill) · `optional` (outlined) |
+| `accent` | Number dot colour: `first` (sun, do this first) · `core` (sky, core skill) · `optional` (outline, go deeper) |
 | `keywords` | Extra words that only search sees, e.g. synonyms and tool names |
 
 3. Commit and push. Cards are numbered automatically.
@@ -55,15 +55,15 @@ node scripts/validate-data.mjs
 
 > The page loads JSON with `fetch`, so open it through a server (`python3 -m http.server`), not by double-clicking `index.html`. GitHub Pages is fine.
 
-## 🚀 Deployment
+## Deployment
 
 Settings → Pages → source `main`, root `/`. Live at  
 `https://pavankumarbalijepalli.github.io/balijepallipavan-resources/`
 
-## 🛠️ Stack
+## Stack
 
-HTML5 · vanilla CSS · vanilla JS · Google Fonts (EB Garamond, Space Grotesk, Lora)
+HTML5 · vanilla CSS · vanilla JS · Google Fonts (Space Grotesk, Lora)
 
 ---
 
-Analog in a digital life.
+Learn AI without the panic.
