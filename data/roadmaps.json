@@ -12,6 +12,15 @@
       "badge": "new",
       "accent": "first",
       "keywords": ["ai engineer", "llm", "rag", "career", "beginner"]
+    },
+     {
+      "title": "AI Role Workbook",
+      "desc": "Understand your interest in AI with no panic.",
+      "url": "assets/workbook_yt1.html",
+      "type": "WEB",
+      "badge": "new",
+      "accent": "first",
+      "keywords": ["ai engineer", "llm", "career", "beginner", "intermediate"]
     }
   ]
 }
