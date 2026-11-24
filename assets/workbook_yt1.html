@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Curiosity Ladder Workbook</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,500&family=Space+Grotesk:wght@400;500;700&display=swap">
+<style>
+:root{--surface:#F4FAFF;--raised:#fff;--ink:#00314F;--muted:#2F6280;--border:#B9D9EC;--blue:#006199;--sky:#8ACFF8;--sun:#FFD444;--lemon:#F4EB6C;color-scheme:light}
+*{box-sizing:border-box}
+html{font-size:16px}
+body{margin:0;background:var(--surface);color:var(--ink);font:1rem/1.45 'Space Grotesk',system-ui,sans-serif}
+main{max-width:60rem;margin:0 auto;padding:1.5rem 1rem 4rem}
+h1,h2,h3,p{margin:0}
+h1{font-size:clamp(2.4rem,8vw,4.4rem);line-height:1;letter-spacing:-.035em;margin:1.6rem 0 .7rem}
+h2{font-size:1.65rem;line-height:1.12;letter-spacing:-.02em}
+h3{font-size:1.02rem;margin:1.3rem 0 .45rem}
+.hl{background:var(--sun);color:var(--ink);border:2px solid var(--ink);border-radius:8px;box-shadow:4px 4px 0 var(--ink);padding:0 .35em;display:inline-block;line-height:1.1}
+.cover{background-color:var(--blue);color:#fff;border:2px solid var(--ink);border-radius:16px;box-shadow:4px 4px 0 var(--ink);padding:1.5rem;
+ background-image:linear-gradient(rgba(255,255,255,.1) 2px,transparent 2px),linear-gradient(90deg,rgba(255,255,255,.1) 2px,transparent 2px);background-size:75px 75px}
+.mark{font-weight:700}.cover p{max-width:40rem}
+.cover .top{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;align-items:center}
+.todo{background:var(--lemon);color:var(--ink);border-radius:4px;padding:0 .3em}
+button{font:700 .86rem 'Space Grotesk',sans-serif;color:var(--ink);background:#fff;border:2px solid var(--ink);border-radius:99px;box-shadow:4px 4px 0 var(--ink);padding:.5rem 1rem;cursor:pointer;min-height:44px}
+button:active{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}.cover :focus-visible{outline-color:var(--sun)}
+.step{background:var(--raised);border:2px solid var(--ink);border-radius:16px;box-shadow:4px 4px 0 var(--ink);padding:1.4rem;margin-top:1.6rem}
+.step>header{display:flex;flex-direction:column;gap:.5rem;margin-bottom:.6rem}
+.dots{display:flex;gap:.45rem;align-items:center}.dots i{width:13px;height:13px;border-radius:50%;border:2px solid var(--ink)}
+.dots i.done{background:var(--ink)}.dots i.now{background:var(--sun);width:19px;height:19px}
+.lead{color:var(--muted)}
+.g2,.g3{display:grid;gap:.9rem;grid-template-columns:1fr}
+label.f{display:block;font-weight:500;font-size:.92rem}
+textarea,input[type=text],select{display:block;width:100%;font:inherit;font-size:1rem;color:var(--ink);background:var(--surface);border:0;border-bottom:2px solid var(--ink);border-radius:6px 6px 0 0;padding:.5rem .6rem;margin-top:.25rem;min-height:44px}
+textarea{resize:none;overflow:hidden;line-height:1.45}
+textarea[data-h="2"]{min-height:4.4rem}
+.row{display:grid;gap:.5rem;grid-template-columns:1fr;border-top:1px solid var(--border);padding:.6rem 0}
+.row>b{align-self:center}.head{display:none}
+.row label span{font-size:.82rem;color:var(--muted)}
+.picks{display:grid;gap:.45rem;grid-template-columns:1fr}
+.pick{display:flex;gap:.6rem;align-items:flex-start;border:2px solid var(--ink);border-radius:12px;padding:.6rem .75rem;cursor:pointer;background:#fff;min-height:44px}
+.pick:has(:checked){background:var(--sky)}
+.pick input{margin:.2rem 0 0;width:18px;height:18px;flex:none;accent-color:var(--ink)}
+.pick b{display:block}.pick small{display:block;font-size:.85rem;line-height:1.35}
+.prompt{background:var(--surface);border:2px solid var(--ink);border-radius:12px;padding:1rem;margin-top:.6rem}
+.prompt p{margin-bottom:.8rem}.prompt p.n{margin:.7rem 0 0;font-size:.86rem;color:var(--muted)}
+.prompt mark{background:var(--lemon);color:var(--ink);border-radius:4px;padding:0 .25em}
+.quote{font:italic 500 1.35rem/1.3 Lora,Georgia,serif;margin:.2rem 0 1rem}
+.note{font-size:.88rem;color:var(--muted);margin-top:.5rem}
+footer{margin-top:2rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.9rem;color:var(--muted)}
+.full{margin-top:.9rem}
+@media(min-width:44rem){
+ .g2{grid-template-columns:1fr 1fr}.g3,.picks.three{grid-template-columns:repeat(3,1fr)}.picks{grid-template-columns:1fr 1fr}
+ .row.c3{grid-template-columns:1.2fr .8fr 1.4fr}.row.c4{grid-template-columns:7.6rem 1fr 1fr 1fr}.row.c2{grid-template-columns:1.6fr 1fr}
+ .head{display:grid;font-size:.82rem;color:var(--muted);border:0;padding:.2rem 0 0}.head~.row label span{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+ .row textarea,.row select{margin-top:0}
+}
+/* one sheet, front and back */
+@page{size:A4;margin:8mm}
+@media print{
+ html{font-size:7.9pt}
+ body{background:#fff;line-height:1.28;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ main{max-width:none;padding:0}button,.screen{display:none!important}
+ h1{font-size:26pt;margin:.5rem 0 .4rem}h2{font-size:14pt}h3{margin:.65rem 0 .2rem}
+ .cover,.step{box-shadow:none;border-width:1.2pt;border-radius:8pt;padding:.8rem 1rem}.step{margin-top:.7rem}.step>header{margin-bottom:.3rem;gap:.25rem}
+ .hl{box-shadow:none}
+ .back{break-before:page;margin-top:0}
+ .g2,.g3{gap:.5rem .9rem}.g2{grid-template-columns:1fr 1fr}.g3,.picks.three{grid-template-columns:repeat(3,1fr)}.picks{grid-template-columns:1fr 1fr;gap:.3rem}
+ .row{padding:.2rem 0;gap:.6rem}.row.c3{grid-template-columns:1.2fr .8fr 1.4fr}.row.c4{grid-template-columns:7.6rem 1fr 1fr 1fr}.row.c2{grid-template-columns:1.6fr 1fr}
+ .head{display:grid}.head~.row label span{display:none}
+ textarea,input[type=text],select{appearance:none;min-height:2.6rem;padding:.15rem .3rem;background:#fff;border-bottom-width:.8pt;border-radius:0;margin-top:0}
+ textarea[data-h="2"]{min-height:3.7rem}
+ textarea::placeholder,input::placeholder{color:transparent}
+ .pick{padding:.3rem .5rem;min-height:0;border-width:.9pt;border-radius:6pt}.pick input{width:9pt;height:9pt;margin-top:.1rem}.pick small{line-height:1.22}
+ .prompt{padding:.5rem .7rem;margin-top:.3rem;border-width:.9pt}.prompt p{margin:0}.prompt p.n{margin-top:.3rem}
+ .quote{font-size:11pt;margin:0 0 .35rem}.full{margin-top:.4rem}footer{margin-top:.5rem}.note{margin-top:.25rem}
+ .row,.pick,.prompt{break-inside:avoid}
+}
+</style></head><body><main>
+
+<section class="cover">
+ <div class="top"><span class="mark">balijepallipavan</span><button class="screen" type="button" id="print">Print or save as PDF</button></div>
+ <h1>The curiosity ladder</h1>
+ <p>Four steps to find out what is <span class="hl">pulling you</span> towards AI, and which role fits it. This is the free workbook for the video “What kind of AI role suits you?” <span class="todo">[VIDEO LINK]</span></p>
+ <p style="margin-top:.6rem">Write the real answer, not the one that sounds good in an interview.</p>
+</section>
+
+<section class="step">
+ <header><h2>Before you start</h2></header>
+ <div class="picks">
+  <label class="pick"><input type="radio" name="rent" value="now"><span><b>My rent is due, or I need a job right now</b><small>Go for whatever is available. Come back to this when the expenses are paid.</small></span></label>
+  <label class="pick"><input type="radio" name="rent" value="space"><span><b>I have a job, or some space around me</b><small>Or I’m in the third or fourth year of my bachelor’s. Follow the steps.</small></span></label>
+ </div>
+</section>
+
+<section class="step">
+ <header><div class="dots" role="img" aria-label="Step 1 of 4"><i class="now"></i><i></i><i></i><i></i></div><h2>1. Why am I interested in AI?</h2>
+ <p class="lead">Think of the AI reels, posts or videos that made you stop. They are not hard rules. They are just clues.</p></header>
+ <h3>The clues</h3>
+ <div id="clues"><div class="row c3 head"><span>What stopped me</span><span>Where I saw it</span><span>Why it pulled me in</span></div></div>
+ <h3>What do the clues point at? Tick what fits.</h3>
+ <div class="picks three" id="pulls"></div>
+ <label class="f full">What is pulling me towards AI, in one line<textarea name="pull" data-h="2" placeholder="For me, it is…"></textarea></label>
+</section>
+
+<section class="step">
+ <header><div class="dots" role="img" aria-label="Step 2 of 4"><i class="done"></i><i class="now"></i><i></i><i></i></div><h2>2. What role fits my interest?</h2>
+ <p class="lead">Pick the one closest to your clues. You can change it later.</p></header>
+ <h3>Three top level roles</h3><div class="picks three" data-roles="top"></div>
+ <h3>Five hybrid roles</h3><div class="picks three" data-roles="hybrid"></div>
+ <h3>One more</h3><div class="picks" data-roles="one"></div>
+ <div class="g3 full">
+  <label class="f">My role name<input type="text" name="role" id="role" placeholder="Pick above, or type your own"></label>
+  <label class="f">My level<select name="level" id="level"><option value="">fresher / senior / founder</option><option>fresher</option><option>senior</option><option>founder</option></select></label>
+  <label class="f">Which clue does it match?<input type="text" name="match"></label>
+ </div>
+</section>
+
+<section class="step back">
+ <header><div class="dots" role="img" aria-label="Step 3 of 4"><i class="done"></i><i class="done"></i><i class="now"></i><i></i></div><h2>3. What does this role expect from me?</h2>
+ <p class="lead">Roles are not just jobs. Roles are a place where you take a problem and solve it.</p></header>
+ <div class="prompt"><h3 style="margin-top:0">Prompt 1, for Claude or ChatGPT</h3>
+  <p id="p1">Search the web for job descriptions and public posts about the role of <mark class="r">[your role name]</mark> at the <mark class="l">[fresher, senior or founder]</mark> level, and then simulate my day as a person in that role, hour by hour. Show your sources. Do the SWOT analysis of the particular role and give me how it can clash with my lifestyle. If you are unsure of my lifestyle, assume potential clashes and list it down. I need the complete pros and cons for this role and what kind of a personality would better fit this role, and I want you to cross verify myself with this personality. So keep it clear and simple to understand.</p>
+  <button type="button" data-copy="p1">Copy prompt 1</button>
+  <p class="n">Turn web search on first, and open the sources. The answer is the average of what others face. You will not face the exact same things.</p></div>
+ <div class="g2 full">
+  <label class="f">The problem this role solves<textarea name="problem" data-h="2"></textarea></label>
+  <label class="f">A normal day, in short<textarea name="day" data-h="2"></textarea></label>
+  <label class="f">Skills I need<textarea name="skills" data-h="2"></textarea></label>
+  <label class="f">The personality that fits, and where I match<textarea name="person" data-h="2"></textarea></label>
+  <label class="f">Pros<textarea name="pros" data-h="2"></textarea></label>
+  <label class="f">Cons<textarea name="cons" data-h="2"></textarea></label>
+ </div>
+ <label class="f full">Where it clashes with my lifestyle, and what I would change<textarea name="clash" data-h="2"></textarea></label>
+</section>
+
+<section class="step">
+ <header><div class="dots" role="img" aria-label="Step 4 of 4"><i class="done"></i><i class="done"></i><i class="done"></i><i class="now"></i></div><h2>4. What is the gap between me now and the role?</h2></header>
+ <div id="gaps"><div class="row c4 head"><span></span><span>Where I am right now</span><span>Where I need to be</span><span>How I will fill it</span></div></div>
+ <div class="prompt"><h3 style="margin-top:0">Prompt 2, in the same chat</h3>
+  <p id="p2">Now tell me the quirks and potential behaviors of this role, what the boring parts are, what people complain about, and what kind of a person enjoys it. Search the web and show your sources.</p>
+  <button type="button" data-copy="p2">Copy prompt 2</button></div>
+ <h3>The boring parts</h3>
+ <div id="boring"><div class="row c2 head"><span>Boring or frustrating part</span><span>My honest reaction</span></div></div>
+ <p class="note">“I think I can figure it out” is a very good sign. Write it down so that you remember it.</p>
+</section>
+
+<section class="step">
+ <header><h2>Moving to AI from another domain?</h2></header>
+ <p class="quote">Your previous expertise in one particular domain is not a liability, it is an asset.</p>
+ <div class="g3">
+  <label class="f">What I already have<textarea name="have" data-h="2"></textarea></label>
+  <label class="f">Where AI is being used on top of it<textarea name="ontop" data-h="2"></textarea></label>
+  <label class="f">Something unique I can make<textarea name="unique" data-h="2"></textarea></label>
+ </div>
+ <label class="f full">The one thing I will do next<input type="text" name="next"></label>
+</section>
+
+<footer><span><b>balijepallipavan</b>. Free to use and share. <span class="todo">[CHANNEL LINK]</span></span><span class="screen" id="saved">Your answers stay in this browser. Nothing is sent anywhere.</span></footer>
+</main>
+<script>
+const $ = (s, r = document) => [...r.querySelectorAll(s)];
+const cell = (name, label) => `<label><span>${label}</span><textarea name="${name}" rows="1" aria-label="${label}"></textarea></label>`;
+const add = (id, html) => document.getElementById(id).insertAdjacentHTML('beforeend', html);
+for (let i = 1; i <= 4; i++) add('clues', `<div class="row c3">${cell('c' + i + 'a', 'What stopped me')}${cell('c' + i + 'b', 'Where I saw it')}${cell('c' + i + 'c', 'Why it pulled me in')}</div>`);
+['Solving a software problem using AI', 'Building with AI', 'Better videos or images', 'The maths', 'Handing off repetitive work', 'The money in it (that’s fine as well)']
+  .forEach((t, i) => add('pulls', `<label class="pick"><input type="checkbox" name="pull${i}"><span>${t}</span></label>`));
+['Skill gap', 'Habit gap', 'Curiosity gap'].forEach((g, i) => add('gaps', `<div class="row c4"><b>${g}</b>${cell('g' + i + 'a', g + ': where I am right now')}${cell('g' + i + 'b', g + ': where I need to be')}${cell('g' + i + 'c', g + ': how I will fill it')}</div>`));
+for (let i = 1; i <= 3; i++) add('boring', `<div class="row c2">${cell('b' + i + 'a', 'Boring or frustrating part')}<label><span>My honest reaction</span><select name="b${i}b" aria-label="My honest reaction"><option value=""></option><option>I can figure it out</option><option>Not sure yet</option><option>I would hate it</option></select></label></div>`);
+const ROLES = {
+  top: [['AI user', 'Uses AI to build software. Claude, Devin, Cursor.'],
+        ['AI developer', 'Uses AI through an API to build agents and agentic orchestration. LangChain, LangGraph, deep agents.'],
+        ['AI researcher', 'Builds AI from scratch. JAX, mathematics, machine learning.']],
+  hybrid: [['AI user + developer', 'Say, a UI developer who builds the chatbot inside their own application. Forward deployed engineers sit here.'],
+           ['AI developer + researcher', 'Builds a custom model on their own data, and the orchestration around it.'],
+           ['AI user + founder', 'Builds SaaS applications and scales them to thousands of users.'],
+           ['AI developer + founder', 'Builds an agentic application and scales it over many users.'],
+           ['AI researcher + founder', 'A niche and expensive space. Anthropic, OpenAI, Sarvam.']],
+  one: [['Industry expert', 'Leads the space and decides what comes next. Andrew Ng, Andrej Karpathy.']] };
+for (const [k, list] of Object.entries(ROLES)) document.querySelector(`[data-roles=${k}]`).innerHTML = list.map(([n, d]) =>
+  `<label class="pick"><input type="radio" name="pickrole" value="${n}"><span><b>${n}</b><small>${d}</small></span></label>`).join('');
+
+// ---- save in this browser, restore on load
+const KEY = 'curiosity-ladder', fields = $('textarea,input,select');
+let data = {};
+try { data = JSON.parse(localStorage.getItem(KEY)) || {}; } catch { }
+const grow = t => { t.style.height = 'auto'; if (t.value) t.style.height = t.scrollHeight + 'px'; };
+for (const f of fields) {
+  const v = data[f.name];
+  if (v === undefined) continue;
+  if (f.type === 'radio') f.checked = f.value === v; else if (f.type === 'checkbox') f.checked = v; else f.value = v;
+}
+const fillPrompt = () => {
+  document.querySelector('.r').textContent = role.value.trim() || '[your role name]';
+  document.querySelector('.l').textContent = level.value || '[fresher, senior or founder]';
+};
+document.addEventListener('input', e => {
+  const f = e.target;
+  if (f.name === 'pickrole') { role.value = f.value; data.role = f.value; }
+  data[f.name] = f.type === 'checkbox' ? f.checked : f.value;
+  try { localStorage.setItem(KEY, JSON.stringify(data)); } catch { saved.textContent = 'This browser is not saving your answers. Print or save as PDF before you close.'; }
+  if (f.tagName === 'TEXTAREA') grow(f);
+  fillPrompt();
+});
+$('textarea').forEach(grow); fillPrompt();
+addEventListener('beforeprint', () => $('textarea').forEach(grow));
+addEventListener('resize', () => $('textarea').forEach(grow));
+document.getElementById('print').onclick = () => window.print();
+$('[data-copy]').forEach(b => b.onclick = async () => {
+  const el = document.getElementById(b.dataset.copy), was = b.textContent;
+  try { await navigator.clipboard.writeText(el.textContent); b.textContent = 'Copied'; }
+  catch { getSelection().selectAllChildren(el); b.textContent = 'Selected, press Ctrl+C'; }
+  setTimeout(() => b.textContent = was, 2000);
+});
+</script></body></html>
